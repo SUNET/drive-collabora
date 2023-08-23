@@ -1,16 +1,18 @@
 FROM debian:bookworm-slim
 
+ARG COLLABORA_VERSION
+ARG COLLABORA_SECRET_URL_PART
 ARG DEBIAN_FRONTEND=noninteractive
 ARG GPG_FILE=/usr/share/keyrings/collaboraonline-release-keyring.gpg
-ARG REPO_URL=https://collaboraoffice.com/cool/CollaboraOnline/${COLLABORA_VERSION}/customer-deb-${COLLABORA_SECRET_URL_PART}
-ARG GPG_URL=https://collaboraoffice.com/downloads/gpg/collaboraonline-release-keyring.gpg
+ARG GPG_URL=https://www.collaboraoffice.com/downloads/gpg/collaboraonline-release-keyring.gpg
+ARG REPO_URL=https://www.collaboraoffice.com/cool/CollaboraOnline/${COLLABORA_VERSION}/customer-deb-${COLLABORA_SECRET_URL_PART}
 
 RUN apt-get update && apt-get upgrade -y && apt-get install -y \
     cpio tzdata libcap2-bin apt-transport-https gnupg2 ca-certificates curl
 
 RUN curl -s ${GPG_URL} -o ${GPG_FILE}
 
-RUN echo "deb [signed-by=${GPG_FILE}] ${REPO_URL} /" \
+RUN echo -e "Types: deb\nURIs: ${REPO_URL}\nSuites: ./\nSigned-By: ${GPG_FILE}\n" \
     > /etc/apt/sources.list.d/collaboraonline.sources
 RUN apt-get update && apt-get install -y \
     collaboraoffice-dict-* \
