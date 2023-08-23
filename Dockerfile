@@ -14,6 +14,7 @@ RUN curl -s ${GPG_URL} -o ${GPG_FILE}
 
 RUN echo -e "Types: deb\nURIs: ${REPO_URL}\nSuites: ./\nSigned-By: ${GPG_FILE}\n" \
     > /etc/apt/sources.list.d/collaboraonline.sources
+RUN cat /etc/apt/sources.list.d/collaboraonline.sources
 RUN apt-get update && apt-get install -y \
     collaboraoffice-dict-* \
     collaboraofficebasis-ar \
