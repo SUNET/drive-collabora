@@ -1,7 +1,13 @@
 ---
+credentials:
+  system:
+    domainCredentials:
+    - credentials:
+      - collabora:
+          COLLABORA_SECRET_URL_PART: "${COLLABORA_SECRET_URL_PART}"
+          scope: GLOBAL
 environment_variables:
     COLLABORA_VERSION: "23.05"
-    COLLABORA_SECRET_URL_PART: "${COLLABORA_SECRET_URL_PART}"
 git:
   branch: main
 triggers:
