@@ -10,7 +10,7 @@ builders:
   - docker
 docker_name: drive/collabora
 docker_build_args:
-  COLLABORA_URL_FRAGMENT: ${COLLABORA_URL_FRAGMENT}
+  COLLABORA_URL_FRAGMENT: $COLLABORA_URL_FRAGMENT
   COLLABORA_VERSION: "23.05"
 docker_tags:
   - "${COLLABORA_VERSION}"
