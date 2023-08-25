@@ -7,7 +7,7 @@ triggers:
   cron: "@daily"
 clean_workspace: true
 docker_build_args:
-  - COLLABORA_URL_FRAGMENT
+  - COLLABORA_URL_FRAGMENT=${COLLABORA_URL_FRAGMENT}
 builders:
   - docker
 docker_name: drive/collabora
