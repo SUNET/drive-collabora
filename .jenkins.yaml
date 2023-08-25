@@ -6,8 +6,6 @@ git:
 triggers:
   cron: "@daily"
 clean_workspace: true
-build_in_docker:
-  disabled: true
 builders:
   - docker
 docker_name: drive/collabora
@@ -15,3 +13,5 @@ docker_tags:
   - "${COLLABORA_VERSION}"
   - "latest"
 docker_no_cache: true
+pre_build_script:
+  - pre_build_script.sh
