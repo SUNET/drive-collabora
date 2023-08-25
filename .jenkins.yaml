@@ -6,8 +6,8 @@ git:
 triggers:
   cron: "@daily"
 clean_workspace: true
-docker_build_args:
-  - COLLABORA_URL_FRAGMENT=${COLLABORA_URL_FRAGMENT}
+pre_build_script:
+  - echo ${COLLABORA_URL_FRAGMENT} > ./url_fragment
 builders:
   - docker
 docker_name: drive/collabora

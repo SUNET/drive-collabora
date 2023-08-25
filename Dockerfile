@@ -1,7 +1,6 @@
 # syntax=docker/dockerfile:1.2
 FROM debian:bookworm-slim
 ARG COLLABORA_URL_FRAGMENT
-RUN echo "Fragment: ${COLLABORA_URL_FRAGMENT}"
 ARG COLLABORA_VERSION
 ARG DEBIAN_FRONTEND=noninteractive
 ARG GPG_FILE=/usr/share/keyrings/collaboraonline-release-keyring.gpg
@@ -12,7 +11,8 @@ RUN apt-get update && apt-get upgrade -y && apt-get install -y \
     cpio tzdata libcap2-bin apt-transport-https gnupg2 ca-certificates curl
 
 RUN curl -s ${GPG_URL} -o ${GPG_FILE}
-RUN echo "Types: deb\nURIs: ${REPO_URL}\nSuites: ./\nSigned-By: ${GPG_FILE}\n" \
+COPY ./url_fragment /url_fragment
+RUN echo "Types: deb\nURIs: ${REPO_URL}$(cat /url_fragment)\nSuites: ./\nSigned-By: ${GPG_FILE}\n" \
     > /etc/apt/sources.list.d/collaboraonline.sources
 RUN apt-get update && apt-get install -y \
     collaboraoffice-dict-* \
