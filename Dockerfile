@@ -11,9 +11,10 @@ RUN apt-get update && apt-get upgrade -y && apt-get install -y \
     cpio tzdata libcap2-bin apt-transport-https gnupg2 ca-certificates curl
 
 RUN curl -s ${GPG_URL} -o ${GPG_FILE}
-
-RUN --mount echo "Types: deb\nURIs: ${REPO_URL}$(cat url_fragment)\nSuites: ./\nSigned-By: ${GPG_FILE}\n" \
+COPY ./url_fragment /url_fragment
+RUN echo "Types: deb\nURIs: ${REPO_URL}$(cat /url_fragment)\nSuites: ./\nSigned-By: ${GPG_FILE}\n" \
     > /etc/apt/sources.list.d/collaboraonline.sources
+RUN rm /url_fragment
 RUN apt-get update && apt-get install -y \
     collaboraoffice-dict-* \
     collaboraofficebasis-ar \
