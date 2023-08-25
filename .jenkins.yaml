@@ -5,7 +5,8 @@ git:
   branch: main
 triggers:
   cron: "@daily"
-clean_workspace: true
+clean_workspace: false
+build_in_docker: false
 builders:
   - docker
 docker_name: drive/collabora
