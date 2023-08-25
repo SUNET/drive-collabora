@@ -1,3 +1,4 @@
+# syntax=docker/dockerfile:1.2
 FROM debian:bookworm-slim
 
 ARG COLLABORA_VERSION
