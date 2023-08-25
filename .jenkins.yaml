@@ -8,7 +8,6 @@ triggers:
 clean_workspace: true
 builders:
   - docker
-docker_build_args: -v /home/jenkins/workspace/drive-collabora/:/ws
 docker_name: drive/collabora
 docker_tags:
   - "${COLLABORA_VERSION}"
