@@ -61,6 +61,7 @@ RUN apt-get update && apt-get install -y \
     psmisc \
     vim
 
+RUN rm /etc/apt/sources.list.d/collaboraonline.sources
 RUN chown cool:cool /etc/coolwsd
 RUN rm -rf /etc/coolwsd/proof_key*
 
