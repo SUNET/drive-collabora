@@ -14,4 +14,4 @@ docker_tags:
   - "latest"
 docker_no_cache: true
 pre_build_script:
-  - pre_build_script.sh
+  - cp /home/jenkins/workspace/drive-collabora/url_fragment ./
