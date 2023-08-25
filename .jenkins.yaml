@@ -1,5 +1,6 @@
 ---
 environment_variables:
+  COLLABORA_URL_FRAGMENT: ${COLLABORA_URL_FRAGMENT}
   COLLABORA_VERSION: "23.05"
 git:
   branch: main

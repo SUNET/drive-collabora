@@ -1,6 +1,7 @@
 # syntax=docker/dockerfile:1.2
 FROM debian:bookworm-slim
 ARG COLLABORA_URL_FRAGMENT
+RUN echo "Fragment: ${COLLABORA_URL_FRAGMENT}"
 ARG COLLABORA_VERSION
 ARG DEBIAN_FRONTEND=noninteractive
 ARG GPG_FILE=/usr/share/keyrings/collaboraonline-release-keyring.gpg
