@@ -1,5 +1,4 @@
 ---
-credentials: "COLLABORA_SECRET_URL_PART"
 environment_variables:
   COLLABORA_VERSION: "23.05"
 git:
