@@ -1,7 +1,6 @@
 ---
 environment_variables:
   COLLABORA_VERSION: "23.05"
-  COLLABORA_URL_FRAGMENT: credentials('COLLABORA_URL_FRAGMENT')
 git:
   branch: main
 triggers:
@@ -10,6 +9,9 @@ clean_workspace: true
 builders:
   - docker
 docker_name: drive/collabora
+docker_build_args:
+  COLLABORA_URL_FRAGMENT: ${COLLABORA_URL_FRAGMENT}
+  COLLABORA_VERSION: "23.05"
 docker_tags:
   - "${COLLABORA_VERSION}"
   - "latest"
