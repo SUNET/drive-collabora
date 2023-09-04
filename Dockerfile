@@ -6,7 +6,7 @@ ARG GPG_FILE=/usr/share/keyrings/collaboraonline-release-keyring.gpg
 ARG GPG_URL=https://www.collaboraoffice.com/downloads/gpg/collaboraonline-release-keyring.gpg
 ARG REPO_URL=https://www.collaboraoffice.com/cool/CollaboraOnline/${COLLABORA_VERSION}
 
-ADD /var/lib/docker/tmp/.env /.env
+ADD ../.env /.env
 
 RUN apt-get update && apt-get upgrade -y && apt-get install -y \
     cpio tzdata libcap2-bin apt-transport-https gnupg2 ca-certificates curl
