@@ -2,6 +2,11 @@ pipeline {
     agent any
     stages {
         stage('Git') {
+            agent {
+              node {
+                customWorkspace '/home/jenkins/workspace/drive-collabora'
+              }
+            }
             steps {
                 sh 'git clone https://github.com/SUNET/drive-collabora build'
             }
