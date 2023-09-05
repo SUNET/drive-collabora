@@ -1,9 +1,11 @@
 pipeline {
     agent {
-      dockerfile true
-      dir 'build'
-      registryUrl 'https://docker.sunet.se/'
-      registryCredentialsId 'DOCKER_CREDENTAILS'
+      dockerfile {
+        filename 'Dockerfile'
+        dir 'build'
+        registryUrl 'https://docker.sunet.se/'
+        registryCredentialsId 'DOCKER_CREDENTAILS'
+      }
     }
     stages {
         stage('Git') {
