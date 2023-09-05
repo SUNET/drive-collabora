@@ -10,8 +10,6 @@ builders:
   - docker
 docker_context_dir: /home/jenkins/workspace/drive-collabora
 docker_name: drive/collabora
-docker_build_args:
-  COLLABORA_URL_FRAGMENT=$(echo ${COLLABORA_URL_FRAGMENT})
 docker_tags:
   - "${COLLABORA_VERSION}"
   - "latest"
