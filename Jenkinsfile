@@ -6,9 +6,9 @@ pipeline {
                 COLLABORA_URL_FRAGMENT = credentials('COLLABORA_URL_FRAGMENT')
             }
             steps {
-                sh 'echo "Cloninge from git"'
+                sh 'echo "Cloning from git"'
                 sh 'git clone https://github.com/SUNET/drive-collabora build'
-                sh 'docker build ./build'
+                sh 'docker build --build-arg=COLLABORA_URL_FRAGMENT=${COLLABORA_URL_FRAGMENT} ./build'
             }
         }
     }
