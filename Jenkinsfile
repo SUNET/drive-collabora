@@ -1,10 +1,5 @@
 pipeline {
-    agent {
-      dockerfile {
-        filename 'Dockerfile'
-        dir 'build'
-      }
-    }
+    agent any
     stages {
         stage('Git') {
             steps {
@@ -12,6 +7,12 @@ pipeline {
             }
         }
         stage('Build') {
+            agent {
+              dockerfile {
+                filename 'Dockerfile'
+                dir 'build'
+              }
+            }
             environment {
                 COLLABORA_URL_FRAGMENT = credentials('COLLABORA_URL_FRAGMENT')
             }
