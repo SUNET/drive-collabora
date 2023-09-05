@@ -1,7 +1,12 @@
 pipeline {
     agent { dockerfile true }
     stages {
-        stage('Test') {
+        stage('Build') {
+            agent {
+              docker {
+                reuseNode true
+              }
+            }
             environment {
                 COLLABORA_URL_FRAGMENT = credentials('COLLABORA_URL_FRAGMENT')
             }
