@@ -3,8 +3,6 @@ pipeline {
       dockerfile {
         filename 'Dockerfile'
         dir 'build'
-        registryUrl 'https://docker.sunet.se/'
-        registryCredentialsId credentials('DOCKER_CREDENTAILS')
       }
     }
     stages {
