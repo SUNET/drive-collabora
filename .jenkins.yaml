@@ -9,8 +9,6 @@ clean_workspace: true
 builders:
   - docker
 docker_context_dir: /home/jenkins/workspace/drive-collabora
-docker_build_args:
-  - COLLABORA_URL_FRAGMENT="${COLLABORA_URL_FRAGMENT}"
 docker_name: drive/collabora
 docker_tags:
   - "${COLLABORA_VERSION}"
